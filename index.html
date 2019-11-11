@@ -8,34 +8,29 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Source+Code+Pro|Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro:400,400i,700,700i&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon" href="./assets/invoice-widget.png" type="image/x-icon">
 
     <title>Invoice Widget - Template</title>
 
     <style>
-        body {
+        body,
+        .font-body {
             font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         }
 
         h1, h2, h3, h4, h5, h6,
-        .h1, .h2, .h3, .h4, .h5, .h6 {
+        .h1, .h2, .h3, .h4, .h5, .h6,
+        .font-heading {
             font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-        }
-
-        pre,
-        code,
-        kbd,
-        samp {
-            font-family: "Source Code Pro", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         }
     </style>
 </head>
 <body>
     <div class="container py-3">
         <header class="mb-3">
-            <h1 class="display-1">Invoice Widget <small class="text-secondary">- Template</small></h1>
+            <h1 class="display-3">Invoice Widget <small class="text-secondary">- Template</small></h1>
         </header>
 
         <main>
@@ -50,29 +45,235 @@
 
             <div class="tab-content" id="tabsInvoiceContent">
                 <section class="tab-pane fade show active" id="form" role="tabpanel">
-                    <h2 class="mb-3">Form</h2>
+                    <h2 class="text-secondary mb-1">Form</h2>
+                    <p class="text-italic mb-5">*Note: all prices are in <strong>SGD</strong></p>
 
-                    <div class="row">
+                    <form class="row">
                         <div class="col-9">
-                            Fields
-                        </div>
-                        <div class="col-3 text-light bg-secondary py-3">
-                            <div>Sub-total (SGD)</div>
-                            <div class="text-right">
-                                <h3 class="display-4">0.00</h3>
+                            <div class="row form-row mb-2">
+                                <label class="col-auto" for="refNo">Reference No.</label>
+                                <div class="col">
+                                    <input name="refNo" type="text" class="form-control" placeholder="XXX-XXXX-XXX" required>
+                                </div>
+                            </div>
+                            <div class="row form-row mb-2">
+                                <label class="col-auto" for="recipient">Recipient</label>
+                                <div class="col">
+                                    <input name="recipient" type="text" class="form-control" placeholder="Recipient's Name" required>
+                                </div>
+
+                                <label class="col-auto" for="payee">Payee</label>
+                                <div class="col">
+                                    <input name="payee" type="text" class="form-control" placeholder="Payee's Name" required>
+                                </div>
+                            </div>
+                            <div class="row form-row mb-2">
+                                <label class="col-auto" for="startDate">Invoice Data</label>
+                                <div class="col">
+                                    <input name="startDate" type="date" class="form-control" placeholder="DD-MM-YYYY" required>
+                                </div>
+
+                                <label class="col-auto" for="endDate">Due Date</label>
+                                <div class="col">
+                                    <input name="endDate" type="text" class="form-control" placeholder="DD-MM-YYYY" required>
+                                </div>
+                            </div>
+                            <div class="row form-row mb-5">
+                                <label class="col-auto" for="status">Status</label>
+                                <div class="col">
+                                    <select name="status" class="form-control" required>
+                                        <option value="">-- Status --</option>
+                                        <option value="A">ACTIVE</option>
+                                        <option value="O">OVERDUE</option>
+                                        <option value="V">VOIDED</option>
+                                    </select>
+                                </div>
                             </div>
 
-                            <div>GST (SGD)</div>
-                            <div class="text-right">
-                                <h3 class="display-4">0.00</h3>
-                            </div>
-                            <hr>
-                            <div>Total (SGD)</div>
-                            <div class="text-right">
-                                <h3 class="display-4">0.00</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <td colspan="5">
+                                                Line items <span class="badge-pill badge-secondary">5</span>
+                                            </td>
+                                            <td colspan="2" class="text-right">
+                                                <button type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-plus"></i> Add</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th>Quantity</th>
+                                            <th>Amount</th>
+                                            <th>Total</th>
+                                            <th>&nbsp;</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>
+                                                <input name="type" type="text" class="form-control" data-id="0">
+                                            </td>
+                                            <td>
+                                                <textarea name="description" class="form-control" data-id="0" rows="2"></textarea>
+                                            </td>
+                                            <td>
+                                                <input name="quantity" type="number" class="form-control"
+                                                    step="1" min="0" max="999" placeholder="0" data-id="0">
+                                            </td>
+                                            <td>
+                                                <input name="amount" type="number" class="form-control"
+                                                    step="0.01" placeholder="0.00" data-id="0">
+                                            </td>
+                                            <td>
+                                                <span class="font-heading" name="total" data-id="0">0.00</span>
+                                            </td>
+                                            <td>
+                                                <button name="remove" type="button" class="btn btn-lg btn-link text-danger" data-id="0">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>
+                                                <input name="type" type="text" class="form-control" data-id="1">
+                                            </td>
+                                            <td>
+                                                <textarea name="description" class="form-control" data-id="1" rows="2"></textarea>
+                                            </td>
+                                            <td>
+                                                <input name="quantity" type="number" class="form-control"
+                                                    step="1" min="0" max="999" placeholder="0" data-id="1">
+                                            </td>
+                                            <td>
+                                                <input name="amount" type="number" class="form-control"
+                                                    step="0.01" placeholder="0.00" data-id="1">
+                                            </td>
+                                            <td>
+                                                <span class="font-heading" name="total" data-id="1">0.00</span>
+                                            </td>
+                                            <td>
+                                                <button name="remove" type="button" class="btn btn-lg btn-link text-danger" data-id="1">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>
+                                                <input name="type" type="text" class="form-control" data-id="2">
+                                            </td>
+                                            <td>
+                                                <textarea name="description" class="form-control" data-id="2" rows="2"></textarea>
+                                            </td>
+                                            <td>
+                                                <input name="quantity" type="number" class="form-control"
+                                                    step="1" min="0" max="999" placeholder="0" data-id="2">
+                                            </td>
+                                            <td>
+                                                <input name="amount" type="number" class="form-control"
+                                                    step="0.01" placeholder="0.00" data-id="2">
+                                            </td>
+                                            <td>
+                                                <span class="font-heading" name="total" data-id="2">0.00</span>
+                                            </td>
+                                            <td>
+                                                <button name="remove" type="button" class="btn btn-lg btn-link text-danger" data-id="2">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>
+                                                <input name="type" type="text" class="form-control" data-id="3">
+                                            </td>
+                                            <td>
+                                                <textarea name="description" class="form-control" data-id="3" rows="2"></textarea>
+                                            </td>
+                                            <td>
+                                                <input name="quantity" type="number" class="form-control"
+                                                    step="1" min="0" max="999" placeholder="0" data-id="3">
+                                            </td>
+                                            <td>
+                                                <input name="amount" type="number" class="form-control"
+                                                    step="0.01" placeholder="0.00" data-id="3">
+                                            </td>
+                                            <td>
+                                                <span class="font-heading" name="total" data-id="3">0.00</span>
+                                            </td>
+                                            <td>
+                                                <button name="remove" type="button" class="btn btn-lg btn-link text-danger" data-id="3">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>
+                                                <input name="type" type="text" class="form-control" data-id="4">
+                                            </td>
+                                            <td>
+                                                <textarea name="description" class="form-control" data-id="4" rows="2"></textarea>
+                                            </td>
+                                            <td>
+                                                <input name="quantity" type="number" class="form-control"
+                                                    step="1" min="0" max="999" placeholder="0" data-id="4">
+                                            </td>
+                                            <td>
+                                                <input name="amount" type="number" class="form-control"
+                                                    step="0.01" placeholder="0.00" data-id="4">
+                                            </td>
+                                            <td>
+                                                <span class="font-heading" name="total" data-id="4">0.00</span>
+                                            </td>
+                                            <td>
+                                                <button name="remove" type="button" class="btn btn-lg btn-link text-danger" data-id="4">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5">
+                                                Line items <span class="badge-pill badge-secondary">5</span>
+                                            </td>
+                                            <td colspan="2" class="text-right">
+                                                <button type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-plus"></i> Add</button>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-3">
+                            <div class="bg-light p-3 mb-3">
+                                <div class="text-secondary">Sub-total</div>
+                                <div class="text-right">
+                                    <h3 class="display-4 text-secondary">0.00</h3>
+                                </div>
+    
+                                <div class="text-secondary">GST</div>
+                                <div class="text-right">
+                                    <h3 class="display-4 text-secondary">0.00</h3>
+                                </div>
+                                <hr>
+                                
+                                <div class="text-danger">Total</div>
+                                <div class="text-right">
+                                    <h3 class="display-4 text-danger">0.00</h3>
+                                </div>
+                            </div>
+                            
+                            <button type="button" class="btn btn-primary mr-1"><i class="fas fa-check"></i> Submit</button>
+                            <button type="reset" class="btn btn-outline-secondary mr-1"><i class="fas fa-ban"></i> Cancel</button>
+                        </div>
+                    </form>
                 </section>
 
                 <section class="tab-pane fade" id="print" role="tabpanel">
@@ -82,6 +283,7 @@
         </main>
 
         <footer class="mt-3">
+            <hr>
             <p class="text-secondary text-center small"><em>Invoice Widget &copy; Davina Leong, 2019</em></p>
         </footer>
     </div>
