@@ -35,7 +35,7 @@
 <body>
     <div class="container py-3">
         <header class="mb-3">
-            <h1 class="display-4">Invoice Widget <small class="text-secondary">- Template</small></h1>
+            <h1 class="display-1">Invoice Widget <small class="text-secondary">- Template</small></h1>
         </header>
 
         <main>
@@ -49,13 +49,35 @@
             </ul>
 
             <div class="tab-content" id="tabsInvoiceContent">
-                <div class="tab-pane fade show active" id="form" role="tabpanel">
-                    <h2>Form</h2>
-                </div>
+                <section class="tab-pane fade show active" id="form" role="tabpanel">
+                    <h2 class="mb-3">Form</h2>
 
-                <div class="tab-pane fade" id="print" role="tabpanel">
-                    <h2>Print</h2>
-                </div>
+                    <div class="row">
+                        <div class="col-9">
+                            Fields
+                        </div>
+                        <div class="col-3 text-light bg-secondary py-3">
+                            <div>Sub-total (SGD)</div>
+                            <div class="text-right">
+                                <h3 class="display-4">0.00</h3>
+                            </div>
+
+                            <div>GST (SGD)</div>
+                            <div class="text-right">
+                                <h3 class="display-4">0.00</h3>
+                            </div>
+                            <hr>
+                            <div>Total (SGD)</div>
+                            <div class="text-right">
+                                <h3 class="display-4">0.00</h3>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tab-pane fade" id="print" role="tabpanel">
+                    <h2 class="mb-3">Print Layout</h2>
+                </section>
             </div>
         </main>
 
