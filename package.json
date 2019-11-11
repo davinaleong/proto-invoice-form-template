@@ -1,0 +1,20 @@
+{
+  "name": "proto-invoice-form-template",
+  "version": "0.1.0",
+  "description": "Template of Invoice form widget",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davinaleong/proto-invoice-form-template.git"
+  },
+  "keywords": [],
+  "author": "Davina Leong <leong.shi.yun@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davinaleong/proto-invoice-form-template/issues"
+  },
+  "homepage": "https://github.com/davinaleong/proto-invoice-form-template#readme"
+}
