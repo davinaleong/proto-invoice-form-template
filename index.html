@@ -78,6 +78,17 @@
                                     <input name="endDate" type="text" class="form-control" placeholder="DD-MM-YYYY" required>
                                 </div>
                             </div>
+                            <div class="row form-row mb-2">
+                                <label class="col-auto" for="billAdd">Billing Address</label>
+                                <div class="col">
+                                    <textarea name="billAdd" class="form-control" rows="4"></textarea>
+                                </div>
+
+                                <label class="col-auto" for="shipAdd">Shipping Address</label>
+                                <div class="col">
+                                    <textarea name="shipAdd" class="form-control" rows="4"></textarea>
+                                </div>
+                            </div>
                             <div class="row form-row mb-5">
                                 <label class="col-auto" for="status">Status</label>
                                 <div class="col">
@@ -115,7 +126,12 @@
                                         <tr>
                                             <td>1</td>
                                             <td>
-                                                <input name="type" type="text" class="form-control" data-id="0">
+                                                <select name="type" class="form-control" data-id="0">
+                                                    <option value="">-- Type --</option>
+                                                    <option>Payment</option>
+                                                    <option>Refund</option>
+                                                    <option>Discount</option>
+                                                </select>
                                             </td>
                                             <td>
                                                 <textarea name="description" class="form-control" data-id="0" rows="2"></textarea>
@@ -140,7 +156,12 @@
                                         <tr>
                                             <td>2</td>
                                             <td>
-                                                <input name="type" type="text" class="form-control" data-id="1">
+                                                <select name="type" class="form-control" data-id="1">
+                                                    <option value="">-- Type --</option>
+                                                    <option>Payment</option>
+                                                    <option>Refund</option>
+                                                    <option>Discount</option>
+                                                </select>
                                             </td>
                                             <td>
                                                 <textarea name="description" class="form-control" data-id="1" rows="2"></textarea>
@@ -165,7 +186,12 @@
                                         <tr>
                                             <td>3</td>
                                             <td>
-                                                <input name="type" type="text" class="form-control" data-id="2">
+                                                <select name="type" class="form-control" data-id="2">
+                                                    <option value="">-- Type --</option>
+                                                    <option>Payment</option>
+                                                    <option>Refund</option>
+                                                    <option>Discount</option>
+                                                </select>
                                             </td>
                                             <td>
                                                 <textarea name="description" class="form-control" data-id="2" rows="2"></textarea>
@@ -190,7 +216,12 @@
                                         <tr>
                                             <td>4</td>
                                             <td>
-                                                <input name="type" type="text" class="form-control" data-id="3">
+                                                <select name="type" class="form-control" data-id="3">
+                                                    <option value="">-- Type --</option>
+                                                    <option>Payment</option>
+                                                    <option>Refund</option>
+                                                    <option>Discount</option>
+                                                </select>
                                             </td>
                                             <td>
                                                 <textarea name="description" class="form-control" data-id="3" rows="2"></textarea>
@@ -215,7 +246,12 @@
                                         <tr>
                                             <td>5</td>
                                             <td>
-                                                <input name="type" type="text" class="form-control" data-id="4">
+                                                <select name="type" class="form-control" data-id="4">
+                                                    <option value="">-- Type --</option>
+                                                    <option>Payment</option>
+                                                    <option>Refund</option>
+                                                    <option>Discount</option>
+                                                </select>
                                             </td>
                                             <td>
                                                 <textarea name="description" class="form-control" data-id="4" rows="2"></textarea>
@@ -277,7 +313,116 @@
                 </section>
 
                 <section class="tab-pane fade" id="print" role="tabpanel">
-                    <h2 class="mb-3">Print Layout</h2>
+                    <h2 class="text-secondary mb-1">Print Layout</h2>
+                    <p class="text-italic mb-5">*Note: all prices are in <strong>SGD</strong></p>
+
+                    <div class="border border-secondary p-5">
+                        <h1 class="display-4 mb-3">XXX-XXXX-XXX</h1>
+
+                        <div class="row mb-3">
+                            <div class="col-9">
+                                <div class="row mb-1">
+                                    <div class="col-6">
+                                        <h5>Recipient</h5>
+                                        <p>John Doe</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <h5>Payee</h5>
+                                        <p>Jane Doe</p>
+                                    </div>
+                                </div>
+        
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h5>Billing Address</h5>
+                                        <p>730 Lake View Dr.<br>Brookline, MA 02446</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <h5>Shipping Address</h5>
+                                        <p>89 Bay Street<br>Palm Bay, FL 32907</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 text-right text-danger">
+                                <h1 class="font-weight-bold">22.63</h1>
+                                <h4>PAID</p>
+                            </div>
+                        </div>
+
+                        <table class="table mb-5">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                    <th>Quantity</th>
+                                    <th>Amount</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Payment</td>
+                                    <td>Lorem<br>ipsum</td>
+                                    <td>1</td>
+                                    <td>6.05</td>
+                                    <td>6.05</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Payment</td>
+                                    <td>Lorem<br>ipsum</td>
+                                    <td>1</td>
+                                    <td>6.05</td>
+                                    <td>6.05</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Refund</td>
+                                    <td>Lorem<br>ipsum</td>
+                                    <td>1</td>
+                                    <td>-3.05</td>
+                                    <td>-3.05</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Payment</td>
+                                    <td>Lorem<br>ipsum</td>
+                                    <td>1</td>
+                                    <td>6.05</td>
+                                    <td>6.05</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Payment</td>
+                                    <td>Lorem<br>ipsum</td>
+                                    <td>1</td>
+                                    <td>6.05</td>
+                                    <td>6.05</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col text-center">
+                                <p>Sub-total</p>
+                                <h1>21.15</h1>
+                            </div>
+
+                            <div class="col text-center">
+                                <p>GST</p>
+                                <h1>1.48</h1>
+                            </div>
+
+                            <div class="col text-center text-danger">
+                                <p>Total</p>
+                                <h1>22.63</h1>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
         </main>
