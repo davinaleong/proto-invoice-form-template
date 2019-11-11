@@ -1,2 +1,3 @@
-# proto-invoice-form-template
+# Invoice Form Template
+
 Template of Invoice form widget
